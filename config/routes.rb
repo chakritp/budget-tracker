@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/dashboard' => 'welcome#dashboard', as: :dashboard
+  resources :users
+  resources :payment_methods
+  resources :transactions
 end

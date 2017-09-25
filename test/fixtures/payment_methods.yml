@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  last_four_digits: MyString
+  bank: MyString
+  user: one
+
+two:
+  type: 
+  last_four_digits: MyString
+  bank: MyString
+  user: two
