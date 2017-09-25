@@ -11,11 +11,14 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
+        <!-- Left Nav -->
+        <%= render 'layouts/sidebar' %>
+
         <!-- Header -->
         <%= render "layouts/header" %>
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" style="min-height: 100%;">
           <%= yield %>
         </div>
         <!-- / page content -->

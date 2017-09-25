@@ -1,5 +1,7 @@
 class TransactionsController < ApplicationController
   def index
+    # show transactions of this user
+    @transactions = Transaction.all
   end
 
   def show
