@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 20170925201810) do
     t.string "category"
     t.boolean "is_expense"
     t.bigint "payment_method_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["payment_method_id"], name: "index_transactions_on_payment_method_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,4 +53,5 @@ ActiveRecord::Schema.define(version: 20170925201810) do
 
   add_foreign_key "payment_methods", "users"
   add_foreign_key "transactions", "payment_methods"
+  add_foreign_key "transactions", "users"
 end

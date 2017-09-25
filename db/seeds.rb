@@ -9,6 +9,6 @@
 user = User.create(name: "Chakrit", email: "chakritp888@gmail.com", password: "password") unless User.first.present?
 payment_method = PaymentMethod.find_or_create_by(payment_type: "Cash", user: User.first)
 
-transaction = Transaction.find_or_create_by(amount: 10.00, name: 'Subway', location: 'Santa Monica', description: '6 inch turkey breast', date: Date.current, payment_method: payment_method, is_expense: true)
+transaction = Transaction.find_or_create_by(amount: 10.00, name: 'Subway', location: 'Santa Monica', description: '6 inch turkey breast', date: Date.current, payment_method: payment_method, user: User.first, is_expense: true)
 
 
