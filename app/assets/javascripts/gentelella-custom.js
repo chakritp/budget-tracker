@@ -38,7 +38,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+$(document).ready(function() {
+	
 var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
     $BODY = $('body'),
     $MENU_TOGGLE = $('#menu_toggle'),
@@ -100,6 +101,8 @@ var setContentHeight = function () {
     });
 
 // toggle small or large menu
+console.log('$MENU_TOGGLE')
+console.log($MENU_TOGGLE)
 $MENU_TOGGLE.on('click', function() {
 		console.log('clicked - menu toggle');
 
@@ -5027,7 +5030,6 @@ if (typeof NProgress != 'undefined') {
 		}
 
 
-	$(document).ready(function() {
 
 		init_sparklines();
 		init_flot_chart();

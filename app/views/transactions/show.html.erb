@@ -1,2 +1,24 @@
-<h1>Transactions#show</h1>
-<p>Find me in app/views/transactions/show.html.erb</p>
+<div class="page-title">
+  <div class="title_left">
+    <h3>
+      <%= @transaction.name%>
+      <small class="<%= @transaction.is_expense ? 'text-danger' : 'text-success'%>">
+        <%= @transaction.is_expense ? "Expense" : "Success" %>
+      </small>
+    </h3>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="x_title">
+      <h2><%= @transaction.name %></h2>
+    </div>
+  </div>
+</div>
+
+
+  
+  

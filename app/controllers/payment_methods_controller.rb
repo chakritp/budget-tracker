@@ -1,5 +1,7 @@
 class PaymentMethodsController < ApplicationController
   def index
+    # List only payment method of this user
+    @payment_methods = PaymentMethod.all
   end
 
   def show

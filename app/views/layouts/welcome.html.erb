@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PocketTrackr</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <%= stylesheet_link_tag    'welcome', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="masthead clearfix">
+          <div class="inner">
+            <h3 class="masthead-brand">Pocket Trackr</h3>
+            <nav class="nav nav-masthead">
+              <a class="nav-link active" href="#">Home</a>
+              <a class="nav-link" href="#">Log In</a>
+              <a class="nav-link" href="#">Sign Up</a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="inner cover">
+          <%= yield %>
+        </div>
+
+        <div class="mastfoot">
+          <div class="inner">
+            &copy; Pocket Trackr 2017 - <%= link_to "Chakrit Prasatwattana", "https://github.com/chakritp", target: "_blank" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

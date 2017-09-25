@@ -1,2 +1,44 @@
-<h1>My Payment Methods</h1>
+<div class="page-title">
+  <div class="title_left">
+    <h3>My Payment Methods</h3>
+  </div>
+</div>
 
+<div class="clearfix"></div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="x_panel">
+      <div class="x_content">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Type</th>
+              <th>Bank</th>
+              <th>Last Four Digits</th>
+            </tr>
+          </thead>
+          
+          <% @payment_methods.each do |pm| %>
+            <tr>
+              <!-- ID -->
+              <td><%= pm.id %></td>
+
+              <!-- Type -->
+              <td><%= pm.payment_type %></td>
+              
+              <!-- Bank -->
+              <td><%= pm.bank %></td>
+
+              <!-- Last 4 Digits -->
+              <td><%= pm.last_four_digits %></td>
+              
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+  
