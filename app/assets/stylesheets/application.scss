@@ -15,3 +15,11 @@
 
  @import "gentelella";
  @import "gentelella-custom";
+
+ .flash {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 40%;
+ }
