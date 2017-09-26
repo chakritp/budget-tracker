@@ -1,26 +1,26 @@
 <div class="inner cover">
   <h1>Sign Up</h1>
-  <%= form_tag sessions_path, { class: '' } do %>
+  <%= form_for @user, { class: '' } do |f| %>
     <div class="form-group">
-      <%= label_tag :first_name, nil, class: "" %>
-      <%= text_field_tag :first_name, nil, class: "form-control", placeholder: "First Name" %>
+      <%= f.label :first_name, class: "" %>
+      <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
     </div>
     <div class="form-group">
-        <%= label_tag :last_name, nil, class: "" %>
-        <%= text_field_tag :last_name, nil, class: "form-control", placeholder: "Last Name" %>
+        <%= f.label :last_name, class: "" %>
+        <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
       </div>
     <div class="form-group">
-      <%= label_tag :email, nil, class: "" %>
-      <%= text_field_tag :email, nil, class: "form-control", placeholder: "Email" %>
+      <%= f.label :email, class: "" %>
+      <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
     </div>
     <div class="form-group">
-      <%= label_tag :password, nil, class: "" %>
-      <%= password_field_tag :password, nil, class: "form-control", placeholder: "Password" %>
+      <%= f.label :password, class: "" %>
+      <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
     </div>
     <div class="form-group">
-        <%= label_tag :confirm_password, nil, class: "" %>
-        <%= password_field_tag :confirm_password, nil, class: "form-control", placeholder: "Confirm Password" %>
+        <%= f.label :password_confirmation, class: "" %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
       </div>
-    <%= submit_tag "Sign Up", class: "btn btn-primary form-button" %>
+    <%= f.submit "Sign Up", class: "btn btn-primary form-button" %>
   <% end %>
 </div>

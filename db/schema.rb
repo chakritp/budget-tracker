@@ -42,11 +42,12 @@ ActiveRecord::Schema.define(version: 20170925201810) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.string "email"
     t.date "date_of_birth"
     t.string "password_digest"
-    t.float "remaining_balance"
+    t.float "remaining_balance", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
