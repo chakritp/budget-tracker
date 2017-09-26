@@ -50,8 +50,8 @@
           <!-- Payment Methods -->
           <li><a><i class="fa fa-credit-card"></i> Payment Methods <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a>View Payment Methods</a></li>
-              <li><a>Add Payment Method</a></li>
+              <li><%= link_to "View Payment Methods", payment_methods_path %></li>
+              <li><%= link_to "Add Payment Method", new_payment_method_path, data: { turbolinks: false} %></li>
             </ul>
           </li>
         </ul>

@@ -6,6 +6,9 @@
  *     // code here
  * });
  */
+
+$( document ).on('turbolinks:load', function() {
+
 (function($,sr){
     // debouncing function from John Hann
     // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
@@ -5067,3 +5070,5 @@ if (typeof NProgress != 'undefined') {
 		init_autocomplete();
 
 	});
+  // console.log("It works on each visit!")
+})
