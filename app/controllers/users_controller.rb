@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    layout: 'welcome'
+    render layout: 'welcome'
   end
 
   def create

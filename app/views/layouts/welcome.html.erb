@@ -8,6 +8,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <%= stylesheet_link_tag    'welcome', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'welcome', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
   <div class="site-wrapper">
@@ -17,18 +18,14 @@
           <div class="inner">
             <h3 class="masthead-brand">Pocket Trackr</h3>
             <nav class="nav nav-masthead">
-              <a class="nav-link active" href="#">Home</a>
-              <a class="nav-link" href="#">Log In</a>
-              <a class="nav-link" href="#">Sign Up</a>
+              <%= link_to 'Home', root_path, class: "nav-link #{'active' if params[:controller] == 'welcome' && params[:action] == 'index'}" %>
+              <%= link_to 'Log In', login_path, class: "nav-link #{'active' if params[:controller] == 'sessions' && params[:action] == 'new'}" %>
+              <%= link_to 'Sign Up', new_user_path, class: "nav-link #{'active' if params[:controller] == 'users' && params[:action] == 'new'}" %>
             </nav>
           </div>
         </div>
 
-        <% raise %>
-
-        <div class="inner cover">
-          <%= yield %>
-        </div>
+        <%= yield %>
 
         <div class="mastfoot">
           <div class="inner">

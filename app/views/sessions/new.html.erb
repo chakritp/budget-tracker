@@ -1,3 +1,19 @@
-<h1>Log In</h1>
-<%= form_tag session_path do %>
-<% end %>
+<div class="inner cover">
+  <h1>Log In</h1>
+  <%= form_tag sessions_path, { class: '' } do %>
+    <div class="form-group">
+      <%= label_tag :email, nil, class: "" %>
+      <%= text_field_tag :email, nil, class: "form-control", placeholder: "Email" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :password, nil, class: "" %>
+      <%= password_field_tag :password, nil, class: "form-control", placeholder: "Password" %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag "Log In", class: "btn btn-primary form-button" %>
+    </div>
+    <div class="form-group">
+      <%= link_to "Sign Up", new_user_path, class: "btn btn-link form-button" %>
+    </div>
+  <% end %>
+</div>
