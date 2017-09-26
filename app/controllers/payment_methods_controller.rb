@@ -25,9 +25,18 @@ class PaymentMethodsController < ApplicationController
   end
 
   def edit
+    @payment_method = PaymentMethod.find(params[:id])
   end
 
   def update
+    @payment_method = PaymentMethod.find(params[:id])
+    if @payment_method.update(payment_method_params)
+      flash[:success] = "Card #{@payment_method.bank} #{@payment_method.last_four_digits} updated successfully"
+      redirect_to payment_method_path(@payment_method)
+    else
+      flash[:danger] = "Please ensure all fields are filled in correctly"
+      redirect_to edit_payment_method_path(@payment_method)
+    end
   end
 
   def destroy

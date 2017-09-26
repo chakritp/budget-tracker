@@ -20,6 +20,7 @@
               <th>Type</th>
               <th>Bank</th>
               <th>Last Four Digits</th>
+              <th>Number of Transactions</th>
               <th>Date Added</th>
               <th>Actions</th>
             </tr>
@@ -37,7 +38,10 @@
               <td><%= pm.bank %></td>
 
               <!-- Last 4 Digits -->
-              <td><%= pm.last_four_digits %></td>
+              <td><%= ("xx" + pm.last_four_digits) if pm.last_four_digits.present? %></td>
+
+              <!-- Number of Transactions -->
+              <td><%= pm.transactions.count %></td>
 
               <!-- Date Added -->
               <td><%= pm.created_at.in_time_zone('America/Los_Angeles').strftime("%I:%M%p %m/%d/%Y") %></td>
