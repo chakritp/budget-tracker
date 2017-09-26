@@ -13,7 +13,11 @@
           <a href="<%= payment_methods_path %>" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back to Payment Methods</a>
         </div>
         <div class="x_title">
-          <h2><%= "#{@payment_method.bank} #{@payment_method.last_four_digits}"%></h2>
+          <% if @payment_method.payment_type == 'Cash' %>
+            <h2>Cash</h2>
+          <% else %>
+            <h2><%= "#{@payment_method.bank} #{@payment_method.last_four_digits}"%></h2>
+          <% end %>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
@@ -38,4 +42,60 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Transactions</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <% if @payment_method.transactions.present? %>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Amount</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+                
+              <% @payment_method.transactions.each do |t| %>
+                <tr>
+                  <!-- ID -->
+                  <td><%= t.id %></td>
+    
+                  <!-- Date -->
+                  <td><%= t.date %></td>
+    
+                  <!-- Name -->
+                  <td><%= link_to t.name, transaction_path(t) %></td>
+    
+                  <!-- Amount -->
+                  <td class="<%= t.is_expense ? 'text-danger' : 'text-success'%>"><%= "$#{t.amount}" %></td>
+    
+                  <!-- Location -->
+                  <td><%= t.location %></td>
+    
+                  <!-- Description -->
+                  <td><%= t.description %></td>
+    
+                  <!-- Category -->
+                  <td><%= t.category %></td>
+                </tr>
+              <% end %>
+            </table>
+          <% else %>
+            <h5>There are no transactions for this payment method</h5>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     
