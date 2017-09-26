@@ -1,6 +1,6 @@
 <div class="page-title">
   <div class="title_left">
-    <h3>My Payment Methods</h3>
+    <h3>Payment Methods</h3>
   </div>
 </div>
 
@@ -10,6 +10,9 @@
   <div class="col-md-12">
     <div class="x_panel">
       <div class="x_content">
+        <div class="buttons-row">
+          <a href="<%= new_payment_method_path %>" class="btn btn-success">New Payment Method <i class="fa fa-plus"></i></a>
+        </div>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -17,6 +20,8 @@
               <th>Type</th>
               <th>Bank</th>
               <th>Last Four Digits</th>
+              <th>Date Added</th>
+              <th>Actions</th>
             </tr>
           </thead>
           
@@ -33,7 +38,18 @@
 
               <!-- Last 4 Digits -->
               <td><%= pm.last_four_digits %></td>
+
+              <!-- Date Added -->
+              <td><%= pm.created_at.in_time_zone('America/Los_Angeles').strftime("%I:%M%p %m/%d/%Y") %></td>
               
+              <!-- Actions -->
+              <td>
+                <div class="btn-group">
+                  <%= link_to "View", payment_method_path(pm), class: 'btn btn-info' %>
+                  <%= link_to "Edit", edit_payment_method_path(pm), class: 'btn btn-warning' %>
+                  <%= link_to "Delete", payment_method_path(pm), class: 'btn btn-danger', method: 'delete', data: { confirm: "Are you sure you want to delete this?"} %>
+                </div>
+              </td>
             </tr>
           <% end %>
         </table>
