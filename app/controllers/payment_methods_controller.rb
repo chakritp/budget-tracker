@@ -5,6 +5,7 @@ class PaymentMethodsController < ApplicationController
   end
 
   def show
+    @payment_method = PaymentMethod.find(params[:id])
   end
 
   def new

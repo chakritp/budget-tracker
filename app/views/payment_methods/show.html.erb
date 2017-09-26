@@ -1,2 +1,41 @@
-<h1>PaymentMethods#show</h1>
-<p>Find me in app/views/payment_methods/show.html.erb</p>
+<div class="page-title">
+    <div class="title_left">
+      <h3>Payment Methods</h3>
+    </div>
+  </div>
+  
+  <div class="clearfix"></div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="x_panel">
+        <div class="buttons-row">
+          <a href="<%= payment_methods_path %>" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back to Payment Methods</a>
+        </div>
+        <div class="x_title">
+          <h2><%= "#{@payment_method.bank} #{@payment_method.last_four_digits}"%></h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <dl class="dl-horizontal">
+
+            <dt>ID</dt>
+            <dd><%= @payment_method.id %></dd>
+
+            <dt>Type</dt>
+            <dd><%= @payment_method.payment_type %></dd>
+
+            <dt>Last Four Digits</dt>
+            <dd><%= "#{@payment_method.last_four_digits}" if @payment_method.last_four_digits.present? %></dd>
+
+            <dt>Date Added</dt>
+            <dd><%= @payment_method.created_at.in_time_zone('America/Los_Angeles').strftime("%I:%M%p %m/%d/%Y") %></dd>
+
+            <dt>Number of Transactions</dt>
+            <dd><%= @payment_method.transactions.count %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+    
