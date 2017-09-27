@@ -1,9 +1,9 @@
 <div class="page-title">
   <div class="title_left">
     <h3>
-      <%= @transaction.name%>
+      Transaction
       <small class="<%= @transaction.is_expense ? 'text-danger' : 'text-success'%>">
-        <%= @transaction.is_expense ? "Expense" : "Success" %>
+        <%= @transaction.is_expense ? "Expense" : "Income" %>
       </small>
     </h3>
   </div>
@@ -13,12 +13,36 @@
 
 <div class="row">
   <div class="col-md-12">
-    <div class="x_title">
-      <h2><%= @transaction.name %></h2>
+    <div class="x_panel">
+      <div class="buttons-row">
+        <a href="<%= transactions_path %>" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back to Payment Methods</a>
+      </div>
+      <div class="x_title">
+        <h2><%= "ID: #{@transaction.id} - #{@transaction.name}" %></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <dl class="dl-horizontal">
+          <dt>Transaction Type</dt>
+          <dd class="<%= @transaction.is_expense ? 'text-danger' : 'text-success'%>"><%= @transaction.is_expense ? "Expense" : "Income" %></dd>
+
+          <dt>Amount</dt>
+          <dd class="<%= @transaction.is_expense ? 'text-danger' : 'text-success'%>"><%= format_amount(@transaction.amount) %></dd>
+
+          <dt>Location</dt>
+          <dd><%= @transaction.location %></dd>
+
+          <dt>Description</dt>
+          <dd><%= @transaction.description %></dd>
+
+          <dt>Date</dt>
+          <dd><%= format_date(@transaction.date) %></dd>
+
+          <div class="ln_solid"></div>
+          <dt>Payment Method</dt>
+          <dd><%= link_to format_payment_method(@transaction.payment_method), payment_method_path(@transaction) %></dd>
+        </dl>
+      </div>
     </div>
   </div>
 </div>
-
-
-  
-  

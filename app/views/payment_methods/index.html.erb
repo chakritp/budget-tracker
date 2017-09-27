@@ -44,7 +44,7 @@
               <td><%= pm.transactions.count %></td>
 
               <!-- Date Added -->
-              <td><%= pm.created_at.in_time_zone('America/Los_Angeles').strftime("%I:%M%p %m/%d/%Y") %></td>
+              <td><%= format_date_with_time(pm.created_at) %></td>
               
               <!-- Actions -->
               <td>

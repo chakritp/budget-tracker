@@ -16,7 +16,7 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Date</th>
               <th>Name</th>
               <th>Amount</th>
@@ -28,19 +28,19 @@
             </tr>
           </thead>
           
-          <% @transactions.each do |t| %>
+          <% @transactions.each_with_index do |t, index| %>
             <tr>
               <!-- ID -->
-              <td><%= t.id %></td>
+              <td><%= index + 1 %></td>
 
               <!-- Date -->
-              <td><%= t.date %></td>
+              <td><%= format_date(t.date) %></td>
 
               <!-- Name -->
               <td><%= link_to t.name, transaction_path(t) %></td>
 
               <!-- Amount -->
-              <td class="<%= t.is_expense ? 'text-danger' : 'text-success'%>"><%= "$#{t.amount}" %></td>
+              <td class="<%= t.is_expense ? 'text-danger' : 'text-success'%>"><%= format_amount(t.amount) %></td>
 
               <!-- Payment Method -->
               <td><%= t.payment_method.payment_type.downcase == 'cash' ? "Cash" : "#{t.payment_method.bank} #{t.payment_method.last_four_digits}" %></td>

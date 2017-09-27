@@ -33,9 +33,9 @@
             <dd><%= "#{@payment_method.last_four_digits}" if @payment_method.last_four_digits.present? %></dd>
 
             <dt>Date Added</dt>
-            <dd><%= @payment_method.created_at.in_time_zone('America/Los_Angeles').strftime("%I:%M%p %m/%d/%Y") %></dd>
+            <dd><%= format_date_with_time(@payment_method.created_at) %></dd>
 
-            <dt>Number of Transactions</dt>
+            <dt># of Transactions</dt>
             <dd><%= @payment_method.transactions.count %></dd>
           </dl>
         </div>
@@ -66,7 +66,7 @@
                 </tr>
               </thead>
                 
-              <% @payment_method.transactions.each do |t| %>
+              <% @payment_method.transactions.order(created_at: :desc).each do |t| %>
                 <tr>
                   <!-- ID -->
                   <td><%= t.id %></td>

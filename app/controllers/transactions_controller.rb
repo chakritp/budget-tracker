@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
   def index
     # show transactions of this user
-    @transactions = Transaction.all
+    @transactions = Transaction.order(created_at: :desc)
   end
 
   def show
@@ -21,7 +21,7 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
-    
+
     if @transaction.save
       flash[:success] = "Transaction has successfully been created"
       redirect_to transaction_path(@transaction)
