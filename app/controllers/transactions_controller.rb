@@ -44,6 +44,14 @@ class TransactionsController < ApplicationController
   end
 
   def destroy
+    @transaction = Transaction.find(params[:id])
+    if @transaction.destroy
+      flash[:warning] = "Successfully deleted transaction"
+      redirect_to transactions_path
+    else
+      flash[:danger] = "Something went wrong. Please try again."
+      redirect_to transactions_path
+    end
   end
 
   private

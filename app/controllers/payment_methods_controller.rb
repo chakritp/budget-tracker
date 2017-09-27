@@ -43,7 +43,7 @@ class PaymentMethodsController < ApplicationController
   def destroy
     @payment_method = PaymentMethod.find(params[:id])
     if @payment_method.destroy
-      flash[:success] = "Card #{@payment_method.bank} #{@payment_method.last_four_digits} has been successfully deleted"
+      flash[:warning] = "Card #{@payment_method.bank} #{@payment_method.last_four_digits} has been successfully deleted"
       redirect_to payment_methods_path
     else
       flash[:danger] = "Something went wrong. Please try again."
