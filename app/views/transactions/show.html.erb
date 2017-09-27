@@ -15,7 +15,12 @@
   <div class="col-md-12">
     <div class="x_panel">
       <div class="buttons-row">
-        <a href="<%= transactions_path %>" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back to Payment Methods</a>
+        <a href="<%= transactions_path %>" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back to Transactions</a>
+
+        <div class="btn-group pull-right">
+          <%= link_to "Edit", edit_transaction_path(@transaction), class: 'btn btn-warning' %>
+          <%= link_to "Delete", transaction_path(@transaction), class: 'btn btn-danger', data: { confirm: "Are you sure you want to delete this transaction?"} %>
+        </div>
       </div>
       <div class="x_title">
         <h2><%= "ID: #{@transaction.id} - #{@transaction.name}" %></h2>
