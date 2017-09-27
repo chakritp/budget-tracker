@@ -10,7 +10,7 @@
     <div class="col-md-12">
       <div class="x_panel">
         <div class="buttons-row">
-          <%= link_to "<i class='fa fa-arrow-left'></i> Back to #{@payment_method.bank} #{@payment_method.last_four_digits}".html_safe, payment_methods_path, class: "btn btn-info" %>
+          <%= link_to "<i class='fa fa-arrow-left'></i> Back to #{@payment_method.bank} #{@payment_method.last_four_digits}".html_safe, payment_method_path(@payment_method), class: "btn btn-info" %>
         </div>
   
         <div class="x_title">

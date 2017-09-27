@@ -14,28 +14,24 @@
 
           <div class="btn-group pull-right">
             <%= link_to "Edit", edit_payment_method_path(@payment_method), class: 'btn btn-warning' %>
-            <%= link_to "Delete", payment_method_path(@payment_method), class: 'btn btn-danger', data: { confirm: "Are you sure you want to delete this payment method?"} %>
+            <%= link_to "Delete", payment_method_path(@payment_method), class: 'btn btn-danger', method: 'delete', data: { confirm: "Are you sure you want to delete this payment method?"} %>
           </div>
         </div>
         <div class="x_title">
           <% if @payment_method.payment_type == 'Cash' %>
             <h2>Cash</h2>
           <% else %>
-            <h2><%= "#{@payment_method.bank} #{@payment_method.last_four_digits}"%></h2>
+            <h2><%= "ID: #{@payment_method.id} - #{@payment_method.bank} #{@payment_method.last_four_digits}"%></h2>
           <% end %>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
           <dl class="dl-horizontal">
-
-            <dt>ID</dt>
-            <dd><%= @payment_method.id %></dd>
-
             <dt>Type</dt>
             <dd><%= @payment_method.payment_type %></dd>
 
             <dt>Last Four Digits</dt>
-            <dd><%= "#{@payment_method.last_four_digits}" if @payment_method.last_four_digits.present? %></dd>
+            <dd><%= "xx#{@payment_method.last_four_digits}" if @payment_method.last_four_digits.present? %></dd>
 
             <dt>Date Added</dt>
             <dd><%= format_date_with_time(@payment_method.created_at) %></dd>
