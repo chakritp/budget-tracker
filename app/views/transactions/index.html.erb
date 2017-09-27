@@ -20,9 +20,11 @@
               <th>Date</th>
               <th>Name</th>
               <th>Amount</th>
+              <th>Payment Method</th>
               <th>Location</th>
               <th>Description</th>
               <th>Category</th>
+              <th>Actions</th>
             </tr>
           </thead>
           
@@ -40,6 +42,9 @@
               <!-- Amount -->
               <td class="<%= t.is_expense ? 'text-danger' : 'text-success'%>"><%= "$#{t.amount}" %></td>
 
+              <!-- Payment Method -->
+              <td><%= t.payment_method.payment_type.downcase == 'cash' ? "Cash" : "#{t.payment_method.bank} #{t.payment_method.last_four_digits}" %></td>
+
               <!-- Location -->
               <td><%= t.location %></td>
 
@@ -48,6 +53,15 @@
 
               <!-- Category -->
               <td><%= t.category %></td>
+
+              <!-- Actions -->
+              <td>
+                <div class="btn-group">
+                  <%= link_to 'View', transaction_path(t), class: 'btn btn-info' %>
+                  <%= link_to 'Edit', edit_transaction_path(t), class: 'btn btn-warning' %>
+                  <%= link_to 'Delete', edit_transaction_path(t), class: 'btn btn-danger', method: 'delete', data: { confirm: "Are you sure you want to delete this transaction?"} %>
+                </div>
+              </td>
             </tr>
           <% end %>
         </table>
