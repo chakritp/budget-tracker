@@ -62,6 +62,7 @@
                   <th>Location</th>
                   <th>Description</th>
                   <th>Category</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
                 
@@ -87,6 +88,9 @@
     
                   <!-- Category -->
                   <td><%= t.category %></td>
+
+                  <!-- Actions -->
+                  <td><%= link_to "View", transaction_path(t), class: 'btn btn-info' %></td>
                 </tr>
               <% end %>
             </table>
