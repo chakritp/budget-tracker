@@ -6,10 +6,20 @@ var $expenseRadio = $('#expenseRadio')
 var $incomeRadio = $('#incomeRadio')
 
 
+function initializeRadioButtons() {
+  if($incomeRadio.prop('checked')){
+    $incomeButton.addClass('btn-success')
+  }
+  else {
+    $expenseButton.addClass('btn-danger')
+  }
+}
+
 $(function(){
   console.log('included')
-  // console.log(moment())
-  // $('input#date').daterangepicker()
+  
+  initializeRadioButtons();
+
   $expenseButton.on('click', function(){
     $incomeButton.removeClass('btn-success').addClass('btn-default')
     $incomeRadio.prop('checked', false)
@@ -26,4 +36,14 @@ $(function(){
     $(this).addClass('btn-success')
   })
 
+  $('input#date').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    locale: {
+      format: 'DD/MM/YYYY'
+    }
+  })
+  
+  // Note: picker_1 is from the gentelella theme
+  $('.daterangepicker').addClass('picker_1')
 })

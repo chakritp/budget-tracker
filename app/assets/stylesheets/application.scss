@@ -13,24 +13,32 @@
  *= require_self
  */
 
- @import "gentelella";
- @import "gentelella-custom";
+@import "gentelella";
+@import "gentelella-custom";
 
- .flash {
+.flash {
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
   width: 40%;
   font-size: 15px;
- }
+}
 
- .nav.child_menu {
-   .fa {
-     font-size: 15px;
-   }
- }
+.nav.child_menu {
+  .fa {
+    font-size: 15px;
+  }
+}
 
- .buttons-row {
-   margin-bottom: 30px;
- }
+.buttons-row {
+  margin-bottom: 30px;
+}
+
+
+// set background color for date range picker
+.daterangepicker.picker_1 {
+  .monthselect, .yearselect{
+    background-color: #213345;
+  }
+}

@@ -45,9 +45,16 @@
             </div>
           </div>
           <div class="form-group">
-            <%= f.label :date, class: 'col-md-3 control-label' %>
+            <%= f.label :payment_method_id, "Payment Method", class: 'col-md-3 control-label' %>
             <div class="col-md-4">
-              <%= f.text_field :date, class: 'form-control', id: 'date' %>
+              <%= f.select :payment_method_id, @payment_methods_select_options, {}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :date, class: 'col-md-3 control-label' %>
+            <div class="col-md-2">
+              <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+              <%= f.text_field :date, class: 'form-control text-center', id: 'date' %>
             </div>
           </div>
           <div class="form-group">
@@ -55,7 +62,7 @@
             <div class="col-md-4">
               <div class="btn-group">
                 <button type="button" class="btn btn-default" id="expenseButton">
-                  <%= f.radio_button :is_expense, true, class: 'form-control', id: 'expenseRadio', style: 'display: none;' %>
+                  <%= f.radio_button :is_expense, true, checked: true, class: 'form-control', id: 'expenseRadio', style: 'display: none;' %>
                   Expense
                 </button>
                 <button type="button" class="btn btn-default" id="incomeButton">
@@ -77,4 +84,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag 'new_transaction' %>
+<%= javascript_include_tag 'transaction_form' %>
