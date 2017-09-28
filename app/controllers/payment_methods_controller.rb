@@ -1,10 +1,10 @@
 class PaymentMethodsController < ApplicationController
   before_action :authenticate
-  before_action :authorize_payment_method, only: [:show, :edit, :destroy]
+  before_action :authorize_payment_method, only: [:show, :edit]
 
   def index
     # List only payment method of this user
-    @payment_methods = PaymentMethod.all
+    @payment_methods = current_user.payment_methods
   end
 
   def show
