@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate
+
   def index
     # show transactions of this user
     @transactions = Transaction.order(created_at: :desc)
