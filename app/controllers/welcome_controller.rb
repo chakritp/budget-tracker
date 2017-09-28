@@ -24,7 +24,7 @@ class WelcomeController < ApplicationController
     records = @current_user.transactions.where(date: Date.today.beginning_of_month..Date.today.end_of_month, is_expense: flag)
     data = Hash.new(0.0)
     records.map do |e|
-      category = e.category.nil? ? "None" : e.category
+      category = e.category.nil? ? "Not Specified" : e.category
       data[category.to_sym] += e.amount
     end
     data.to_a

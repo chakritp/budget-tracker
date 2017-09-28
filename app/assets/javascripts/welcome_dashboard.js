@@ -5,6 +5,19 @@ $(function(){
     chart: {
       type: 'pie',
     },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+            enabled: false
+        },
+        showInLegend: true
+      }
+    },
+    tooltip: {
+      pointFormat: '<b>${point.y:.2f}</b>'
+    },
     title: {
       text: 'Expenses',
       style: {
@@ -21,6 +34,19 @@ $(function(){
   var incomeChart = Highcharts.chart('incomePieChart', {
     chart: {
       type: 'pie',
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+            enabled: false
+        },
+        showInLegend: true
+      }
+    },
+    tooltip: {
+      pointFormat: '<b>${point.y:.2f}</b>'
     },
     title: {
       text: 'Income',
