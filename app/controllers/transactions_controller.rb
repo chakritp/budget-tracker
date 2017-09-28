@@ -28,7 +28,7 @@ class TransactionsController < ApplicationController
       payment_methods.map do |pm| 
         pm.payment_type == 'Cash' ? ["Cash", pm.id] : ["#{pm.bank} - #{pm.payment_type} (x#{pm.last_four_digits})", pm.id]
       end
-    
+    @categories = ["Food", "Groceries", "Transport", "Entertainment", "House", "Shopping", "Services", "Health Care", "Investments", "Salary", "Other"]
   end
 
   def create
@@ -53,6 +53,7 @@ class TransactionsController < ApplicationController
     payment_methods.map do |pm| 
       pm.payment_type == 'Cash' ? ["Cash", pm.id] : ["#{pm.bank} - #{pm.payment_type} (x#{pm.last_four_digits})", pm.id]
     end
+    @categories = ["Food", "Groceries", "Transport", "Entertainment", "House", "Shopping", "Services", "Health Care", "Investments", "Salary", "Other"]
   end
 
   def update

@@ -45,6 +45,12 @@
             </div>
           </div>
           <div class="form-group">
+            <%= f.label :category, "Category", class: 'col-md-3 control-label' %>
+            <div class="col-md-4">
+              <%= f.select :category, @categories, {}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
             <%= f.label :payment_method_id, "Payment Method", class: 'col-md-3 control-label' %>
             <div class="col-md-4">
               <%= f.select :payment_method_id, @payment_methods_select_options, {}, class: 'form-control' %>
