@@ -26,32 +26,38 @@
         <h3>General</h3>
         <ul class="nav side-menu">
           <!-- Home -->
-          <li><a href="<%= dashboard_path %>"><i class="fa fa-home"></i> Home</span></a>
+          <li><a href="<%= dashboard_path %>"><i class="fa fa-home"></i> Home</span></a></li>
 
           <!-- All Transaction -->
-          <li><a href="<%= transactions_path %>"><i class="fa fa-list"></i> Transactions</span></a>
+
+          <li><a><i class="fa fa-list"></i> Transactions <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li><%= link_to "View Transactions", transactions_path %></li>
+                <li><%= link_to "Add Transaction", new_transaction_path %></li>
+            </ul>
+          </li>
           
           <!-- Expenses -->
-          <li><a><i class="fa fa-minus-square"></i> Expenses <span class="fa fa-chevron-down"></span></a>
+          <!-- <li><a><i class="fa fa-minus-square"></i> Expenses <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               <li><a>View Expenses</a></li>
               <li><a>Add Expense <i class="fa fa-plus"></i></a></li>
             </ul>
-          </li>
+          </li> -->
 
           <!-- Income -->
-          <li><a><i class="fa fa-plus-square"></i> Income <span class="fa fa-chevron-down"></span></a>
+          <!-- <li><a><i class="fa fa-plus-square"></i> Income <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               <li><a>View Income</a></li>
               <li><a>Add Income <i class="fa fa-plus"></i></a></li>
             </ul>
-          </li>
+          </li> -->
 
           <!-- Payment Methods -->
           <li><a><i class="fa fa-credit-card"></i> Payment Methods <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               <li><%= link_to "View Payment Methods", payment_methods_path %></li>
-              <li><%= link_to "Add Payment Method <i class='fa fa-plus'></i>".html_safe, new_payment_method_path %></li>
+              <li><%= link_to "Add Payment Method", new_payment_method_path %></li>
             </ul>
           </li>
         </ul>
