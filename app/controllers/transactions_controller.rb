@@ -1,9 +1,10 @@
 class TransactionsController < ApplicationController
   before_action :authenticate
+  before_action :authorize_transaction, only: [:show, :edit, :destroy]
 
   def index
     # show transactions of this user
-    @transactions = Transaction.order(created_at: :desc)
+    @transactions = current_user.transactions.order(created_at: :desc)
   end
 
   def show
@@ -69,5 +70,13 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:amount, :name, :location, :description, :date, :category, :is_expense, :payment_method_id)
+  end
+
+  def authorize_transaction
+    @transaction = Transaction.find(params[:id])
+    unless current_user == @transaction.user
+      flash[:danger] = "You are not authorized to view that page"
+      redirect_to dashboard_path
+    end
   end
 end
