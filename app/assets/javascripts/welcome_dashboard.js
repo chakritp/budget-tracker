@@ -1,6 +1,7 @@
 $(function(){
   var expenseData = gon.expense_data_set;
   var incomeData = gon.income_data_set;
+
   var expenseChart = Highcharts.chart('expensePieChart', {
     chart: {
       type: 'pie',
@@ -29,7 +30,7 @@ $(function(){
       data: expenseData,
       innerSize: '50%'
     }]
-  })
+  });
 
   var incomeChart = Highcharts.chart('incomePieChart', {
     chart: {
@@ -59,5 +60,5 @@ $(function(){
       data: incomeData,
       innerSize: '50%'
     }]
-  })
+  });
 })

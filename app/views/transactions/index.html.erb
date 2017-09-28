@@ -34,12 +34,13 @@
         <div class="buttons-row">
           <a href="<%= new_transaction_path %>" class="btn btn-success">New Transaction <i class="fa fa-plus"></i></a>
         </div>
-        <% if @transactions.present? %>
           <ul class="nav nav-tabs">
             <li role="presentation" class="<%= 'active' unless params[:type].present? %>"><%= link_to "All", transactions_path %></li>
             <li role="presentation" class="<%= 'active' if params[:type] == 'expenses' %>"><%= link_to "Expenses", transactions_path(type: 'expenses') %></li>
             <li role="presentation" class="<%= 'active' if params[:type] == 'income' %>"><%= link_to "Income", transactions_path(type: 'income') %></li>
           </ul> 
+          
+        <% if @transactions.present? %>
           <table class="table table-hover">
             <thead>
               <tr>
