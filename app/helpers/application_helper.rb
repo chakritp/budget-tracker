@@ -4,11 +4,11 @@ module ApplicationHelper
   end
 
   def format_date_with_time(date)
-    date.in_time_zone('America/Los_Angeles').strftime("%I:%M%p %m/%d/%Y")
+    date.in_time_zone('America/Los_Angeles').strftime("%I:%M%p %d/%m/%Y")
   end
 
   def format_date(date)
-    date.strftime("%m/%d/%Y")
+    date.strftime("%d/%m/%Y")
   end
 
   def format_payment_method(payment_method)

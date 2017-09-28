@@ -33,13 +33,22 @@ class TransactionsController < ApplicationController
 
   def edit
     @transaction = Transaction.find(params[:id])
+    payment_methods = current_user.payment_methods
+    @payment_methods_select_options = 
+    payment_methods.map do |pm| 
+      pm.payment_type == 'Cash' ? ["Cash", pm.id] : ["#{pm.bank} - #{pm.payment_type} (x#{pm.last_four_digits})", pm.id]
+    end
   end
 
   def update
     @transaction = Transaction.find(params[:id])
+
     if @transaction.update(transaction_params)
+      flash[:success] = "Transaction has successfully been updated"
       redirect_to transaction_path(@transaction)
     else
+      flash[:danger] = "Please check that all fields have been filled in correctly"
+      redirect_to edit_transaction_path(@transaction)
     end
   end
 
