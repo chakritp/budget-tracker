@@ -13,3 +13,5 @@
 //= require rails-ujs
 //= require gentelella
 //= require gentelella-custom
+//= require highcharts
+//= require highcharts/highcharts-more

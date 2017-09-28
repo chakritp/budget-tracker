@@ -1,3 +1,5 @@
+<%= Gon::Base.render_data %>
+
 <div class="page-title">
   <div class="title_left">
     <h3>Dashboard</h3>
@@ -42,3 +44,29 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-6">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Summary of Expenses</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <div id="expensePieChart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Summary of Income</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <div id="incomePieChart"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'welcome_dashboard'%>
