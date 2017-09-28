@@ -1,5 +1,44 @@
 <div class="page-title">
-  <div class="title-left">
+  <div class="title_left">
     <h3>Dashboard</h3>
   </div>
 </div>
+
+<div class="clearfix"></div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Remaining Balance</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <h1 class="<%= @remaining_balance <= 0.0 ? 'red' : 'green' %>"><%= format_amount_with_commas(@remaining_balance) %></h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Expenses This Month</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <h1 class="red"><%= format_amount_with_commas(@expense_this_month) %></h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Income This Month</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <h1 class="green"><%= format_amount_with_commas(@income_this_month) %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+

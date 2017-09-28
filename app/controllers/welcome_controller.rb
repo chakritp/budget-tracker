@@ -7,6 +7,10 @@ class WelcomeController < ApplicationController
   end
 
   def dashboard
+    @remaining_balance = @current_user.remaining_balance
+    @expense_this_month = @current_user.transactions.where(date: Date.today.beginning_of_month..Date.today.end_of_month, is_expense: true).sum(:amount) 
+    @income_this_month = @current_user.transactions.where(date: Date.today.beginning_of_month..Date.today.end_of_month, is_expense: false).sum(:amount)
+    
     render layout: 'application'
   end
 end
