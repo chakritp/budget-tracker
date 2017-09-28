@@ -3,6 +3,10 @@ module ApplicationHelper
     '$' + sprintf('%.2f', number)
   end
 
+  def format_amount_with_commas(number)
+    '$' + number_with_delimiter(sprintf('%.2f', number), :delimiter => ',')
+  end
+
   def format_date_with_time(date)
     date.in_time_zone('America/Los_Angeles').strftime("%I:%M%p %d/%m/%Y")
   end
