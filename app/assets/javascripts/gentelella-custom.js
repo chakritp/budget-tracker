@@ -7,7 +7,7 @@
  * });
  */
 
-$( document ).on('turbolinks:load', function() {
+// $( document ).on('turbolinks:load', function() {
 
 (function($,sr){
     // debouncing function from John Hann
@@ -5071,4 +5071,4 @@ if (typeof NProgress != 'undefined') {
 
 	});
   // console.log("It works on each visit!")
-})
+// })
