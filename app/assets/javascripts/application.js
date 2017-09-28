@@ -16,3 +16,10 @@
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/modules/no-data-to-display
+//= require sweetalert2
+//= require sweet-alert2-rails
+
+window.sweetAlertConfirmConfig = {
+  type: 'error',
+  confirmButtonColor: '#DD6B55'
+};
