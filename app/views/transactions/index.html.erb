@@ -34,58 +34,62 @@
         <div class="buttons-row">
           <a href="<%= new_transaction_path %>" class="btn btn-success">New Transaction <i class="fa fa-plus"></i></a>
         </div>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Date</th>
-              <th>Name</th>
-              <th>Amount</th>
-              <th>Payment Method</th>
-              <th>Location</th>
-              <th>Description</th>
-              <th>Category</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          
-          <% @transactions.each_with_index do |t, index| %>
-            <tr>
-              <!-- ID -->
-              <td><%= index + 1 %></td>
+        <% if @transactions.present? %>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Payment Method</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            
+            <% @transactions.each_with_index do |t, index| %>
+              <tr>
+                <!-- ID -->
+                <td><%= index + 1 %></td>
 
-              <!-- Date -->
-              <td><%= format_date(t.date) %></td>
+                <!-- Date -->
+                <td><%= format_date(t.date) %></td>
 
-              <!-- Name -->
-              <td><%= link_to t.name, transaction_path(t) %></td>
+                <!-- Name -->
+                <td><%= link_to t.name, transaction_path(t) %></td>
 
-              <!-- Amount -->
-              <td class="<%= t.is_expense ? 'text-danger' : 'text-success'%>"><%= format_amount(t.amount) %></td>
+                <!-- Amount -->
+                <td class="<%= t.is_expense ? 'text-danger' : 'text-success'%>"><%= format_amount(t.amount) %></td>
 
-              <!-- Payment Method -->
-              <td><%= t.payment_method.payment_type.downcase == 'cash' ? "Cash" : "#{t.payment_method.bank} #{t.payment_method.last_four_digits}" %></td>
+                <!-- Payment Method -->
+                <td><%= t.payment_method.payment_type.downcase == 'cash' ? "Cash" : "#{t.payment_method.bank} #{t.payment_method.last_four_digits}" %></td>
 
-              <!-- Location -->
-              <td><%= t.location %></td>
+                <!-- Location -->
+                <td><%= t.location %></td>
 
-              <!-- Description -->
-              <td><%= t.description %></td>
+                <!-- Description -->
+                <td><%= t.description %></td>
 
-              <!-- Category -->
-              <td><%= t.category %></td>
+                <!-- Category -->
+                <td><%= t.category %></td>
 
-              <!-- Actions -->
-              <td>
-                <div class="btn-group">
-                  <%= link_to 'View', transaction_path(t), class: 'btn btn-info' %>
-                  <%= link_to 'Edit', edit_transaction_path(t), class: 'btn btn-warning' %>
-                  <%= link_to 'Delete', transaction_path(t), class: 'btn btn-danger', method: 'delete', data: { confirm: "Are you sure you want to delete this transaction?"} %>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </table>
+                <!-- Actions -->
+                <td>
+                  <div class="btn-group">
+                    <%= link_to 'View', transaction_path(t), class: 'btn btn-info' %>
+                    <%= link_to 'Edit', edit_transaction_path(t), class: 'btn btn-warning' %>
+                    <%= link_to 'Delete', transaction_path(t), class: 'btn btn-danger', method: 'delete', data: { confirm: "Are you sure you want to delete this transaction?"} %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        <% else %>
+          <h4>There are no transactions. Add a new one <%= link_to "here", new_transaction_path, style: 'text-decoration: underline' %></h4>
+        <% end %>
       </div>
     </div>
   </div>
