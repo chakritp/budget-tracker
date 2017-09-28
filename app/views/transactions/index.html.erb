@@ -11,7 +11,7 @@
     <span class="count_top">
       <i class="fa fa-square"> Remaining Balance</i>
     </span>
-    <div class="count"><%= format_amount_with_commas(@remaining_balance) %></div>
+    <div class="count <%= @remaining_balance <= 0.0 ? 'red' : 'green' %>"><%= format_amount_with_commas(@remaining_balance) %></div>
   </div>
   <div class="col-md-4 tile_stats_count">
     <span class="count_top">
