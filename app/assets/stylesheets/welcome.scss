@@ -1,9 +1,20 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.site-wrapper {
+  background: asset_url("welcome_background_transparent.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 .form-button {
   cursor: pointer;
+}
+
+a.btn-link.form-button {
+  color: white;
 }
 
 .flash {
