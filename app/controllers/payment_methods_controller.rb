@@ -1,4 +1,7 @@
 class PaymentMethodsController < ApplicationController
+  before_action :authenticate
+  before_action :authorize_payment_method, only: [:show, :edit, :destroy]
+
   def index
     # List only payment method of this user
     @payment_methods = PaymentMethod.all
@@ -55,5 +58,13 @@ class PaymentMethodsController < ApplicationController
   
   def payment_method_params
     params.require(:payment_method).permit(:payment_type, :bank, :last_four_digits)
+  end
+
+  def authorize_payment_method
+    @payment_method = PaymentMethod.find(params[:id])
+    unless current_user == @payment_method.user
+      flash[:danger] = "You are not authorized to view that page"
+      redirect_to dashboard_path
+    end
   end
 end
