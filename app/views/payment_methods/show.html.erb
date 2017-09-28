@@ -12,12 +12,12 @@
         <div class="buttons-row">
           <a href="<%= payment_methods_path %>" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back to Payment Methods</a>
 
-          <%# unless @payment_method.payment_type == "Cash" %>
+          <% unless @payment_method.payment_type == "Cash" %>
             <div class="btn-group pull-right">
               <%= link_to "Edit", edit_payment_method_path(@payment_method), class: 'btn btn-warning' %>
               <%= link_to "Delete", payment_method_path(@payment_method), class: 'btn btn-danger', method: 'delete', data: { confirm: "Are you sure you want to delete this payment method?"} %>
             </div>
-          <%# end %>
+          <% end %>
         </div>
         <div class="x_title">
           <% if @payment_method.payment_type == 'Cash' %>
