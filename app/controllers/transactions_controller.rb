@@ -4,7 +4,14 @@ class TransactionsController < ApplicationController
 
   def index
     # show transactions of this user
-    @transactions = @current_user.transactions.order(created_at: :desc)
+    @transactions = if params[:type] == 'expenses'
+                      @current_user.transactions.where(is_expense: true).order(date: :desc)
+                    elsif params[:type] == 'income'
+                      @current_user.transactions.where(is_expense: false).order(date: :desc)
+                    else
+                      @current_user.transactions.order(date: :desc)
+                    end
+                    
     @remaining_balance = @current_user.remaining_balance
     @expense_this_month = @current_user.transactions.where(date: Date.today.beginning_of_month..Date.today.end_of_month, is_expense: true).sum(:amount) 
     @income_this_month = @current_user.transactions.where(date: Date.today.beginning_of_month..Date.today.end_of_month, is_expense: false).sum(:amount) 
