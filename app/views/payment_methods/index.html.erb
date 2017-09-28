@@ -50,8 +50,10 @@
               <td>
                 <div class="btn-group">
                   <%= link_to "View", payment_method_path(pm), class: 'btn btn-info' %>
-                  <%= link_to "Edit", edit_payment_method_path(pm), class: 'btn btn-warning' %>
-                  <%= link_to "Delete", payment_method_path(pm), class: 'btn btn-danger', method: 'delete', data: { confirm: "Are you sure you want to delete this?"} %>
+                  <%  unless pm.payment_type == "Cash" %>
+                    <%= link_to "Edit", edit_payment_method_path(pm), class: 'btn btn-warning'%>
+                    <%= link_to "Delete", payment_method_path(pm), class: 'btn btn-danger', method: 'delete', data: { confirm: "Are you sure you want to delete this?"} %>
+                  <% end %>
                 </div>
               </td>
             </tr>

@@ -45,6 +45,12 @@ class PaymentMethodsController < ApplicationController
 
   def destroy
     @payment_method = PaymentMethod.find(params[:id])
+
+    if @payment_method.payment_type == "Cash"
+      flash[:danger] = "Cannot delete cash payment method"
+      redirect_to payment_methods_path and return
+    end
+
     if @payment_method.destroy
       flash[:warning] = "Card #{@payment_method.bank} #{@payment_method.last_four_digits} has been successfully deleted"
       redirect_to payment_methods_path
