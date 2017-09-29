@@ -21,13 +21,14 @@
         <%= form_for @transaction, html: { class: 'form-horizontal form-label-left' } do |f| %>
           <br>
           <div class="form-group">
-            <%= f.label :amount, class: 'col-md-3 control-label' %>
-            <div class="col-md-4">
-              <%= f.text_field :amount, class: 'form-control' %>
+            <%= f.label :amount, "Amount*", class: 'col-md-3 control-label' %>
+            <div class="col-md-2">
+              <span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
+              <%= f.text_field :amount, class: 'form-control text-center' %>
             </div>
           </div>
           <div class="form-group">
-            <%= f.label :name, class: 'col-md-3 control-label' %>
+            <%= f.label :name, "Name*", class: 'col-md-3 control-label' %>
             <div class="col-md-4">
               <%= f.text_field :name, class: 'form-control' %>
             </div>
