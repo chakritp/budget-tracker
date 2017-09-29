@@ -68,10 +68,20 @@ A visual representation of the relationships between models is shown below:
 - Transaction CRUD
 
 ## Features for the Future
+- Mobile responsive
 - Pagination for payment methods and transactions
 - Quick Transaction input feature
-- Suggestions on repeated transactions
-- Routine transactions input
-- Charts and graphs based on a user search filter 
+  - Button to add a repeated transaction on the dashboard
+  - Suggestions on repeated transactions
+- Calendar to list an overview of transactions
+- Charts and graphs based on a user search filter (e.g. based on a certain month)
 - Integrate real time with a payment API (i.e. non manual input)
+
+# Installation Instructions
+To implement this app:
+
+- clone the repository
+- run `bundle install`
+- run `rails server`
+- visit [http://localhost:3000](http://localhost:3000) in the browser
 
