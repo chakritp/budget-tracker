@@ -35,6 +35,9 @@ gem "highcharts-rails"
 gem 'gon'
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'sweet-alert2-rails'
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
+gem 'dotenv-rails', :group => :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
