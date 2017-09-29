@@ -11,3 +11,4 @@ payment_method = PaymentMethod.find_or_create_by(payment_type: "Cash", user: Use
 
 transaction = Transaction.find_or_create_by(amount: 10.00, name: 'Subway', location: 'Santa Monica', description: '6 inch turkey breast', date: Date.current, payment_method: payment_method, user: User.first, is_expense: true)
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
