@@ -11,6 +11,7 @@
     <div class="x_panel">
       <div class="buttons-row">
         <%= link_to "<i class='fa fa-arrow-left'></i> Back to My Profile".html_safe, user_path(@current_user.id), class: "btn btn-info" %>
+        <%= link_to "Delete My Profile", user_path(@current_user.id), method: 'delete', class: 'btn btn-danger pull-right', data: { confirm: "Are you sure you want to delete your profile? \n (You will be signed out)"} %>
       </div>
 
       <div class="x_title">

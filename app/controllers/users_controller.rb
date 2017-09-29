@@ -65,6 +65,16 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+
+    if @user.destroy
+      session[:user_id] = nil
+      flash[:success] = "You have successfully deleted your account"
+      redirect_to root_path
+    else
+      flash[:danger] = "Something went wrong. Please try again"
+      redirect_to edit_user_path(@current_user)
+    end
   end
 
   private
