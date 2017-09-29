@@ -30,6 +30,11 @@ class PaymentMethodsController < ApplicationController
 
   def edit
     @payment_method = PaymentMethod.find(params[:id])
+    
+    if @payment_method.payment_type == 'Cash'
+      flash[:danger] = "Cannot modify cash payment method"
+      redirect_to payment_methods_path
+    end
   end
 
   def update

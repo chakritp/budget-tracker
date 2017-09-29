@@ -10,6 +10,7 @@ class User < ApplicationRecord
   after_create :initialize_with_cash_payment_method
   
   def initialize_with_cash_payment_method
-    self.payment_methods.create(payment_type: "Cash")
+    pm = self.payment_methods.new(payment_type: "Cash")
+    pm.save(validate: false)
   end
 end
