@@ -1,2 +1,52 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="page-title">
+  <div class="title_left">
+      <h3>User Profile</h3>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="x_panel">
+      <div class="buttons-row">
+        <%= link_to "<i class='fa fa-arrow-left'></i> Back to My Profile".html_safe, user_path(@current_user.id), class: "btn btn-info" %>
+      </div>
+
+      <div class="x_title">
+        <h2>Edit Profile</h2>
+        <div class="clearfix"></div>
+      </div>
+      
+      <div class="x_content">
+        <%= form_for @user, html: { class: 'form-horizontal form-label-left' } do |f| %>
+          <br>
+          <div class="form-group">
+            <%= f.label :first_name, "First Name*", class: 'col-md-3 control-label' %>
+            <div class="col-md-4">
+              <%= f.text_field :first_name, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :last_name, "First Name*", class: 'col-md-3 control-label' %>
+            <div class="col-md-4">
+              <%= f.text_field :last_name, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, "Email*", class: 'col-md-3 control-label' %>
+            <div class="col-md-4">
+              <%= f.text_field :email, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-4 col-md-offset-3">
+              <%= f.submit "Update Profile", class: "btn btn-success"%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

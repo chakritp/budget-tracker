@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/dashboard' => 'welcome#dashboard', as: :dashboard
-  resources :users
+  
+  resources :users do
+    member do
+      get 'reset_password', as: :reset_password
+      patch 'reset_password' => 'users#update_password'
+    end
+  end
   resources :payment_methods
   resources :transactions
 
@@ -17,4 +23,5 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
 
   delete '/logout' => 'sessions#destroy', as: :logout
+
 end

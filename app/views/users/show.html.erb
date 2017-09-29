@@ -1,2 +1,40 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="page-title">
+  <div class="title_left">
+    <h3>User Profile</h3>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>My Profile</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <dl class="dl-horizontal">
+          <dt>First Name</dt>
+          <dd><%= current_user.first_name %></dd>
+
+          <dt>Last Name</dt>
+          <dd><%= current_user.last_name %></dd>
+
+          <dt>Email</dt>
+          <dd><%= current_user.email %></dd>
+
+          <dt>Profile Picture</dt>
+          <dd></dd>
+        
+          <div class="ln_solid"></div>
+          <dt></dt>
+          <dd>
+            <%= link_to 'Edit My Profile', edit_user_path(current_user.id), class: 'btn btn-info' %> 
+            <%= link_to 'Reset Password', reset_password_user_path(current_user.id), class: 'btn btn-warning' %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
