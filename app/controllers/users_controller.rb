@@ -47,9 +47,21 @@ class UsersController < ApplicationController
   end
 
   def reset_password
+    @user = User.find(params[:id])
   end
 
   def update_password
+    @user = User.find(params[:id])
+
+    if user_params[:password].present? && (user_params[:password] == user_params[:password_confirmation])
+      @user.password = user_params[:password]
+      @user.save(validate: false)
+      flash[:success] = "Password successfully updated!"
+      redirect_to user_path(@current_user)
+    else
+      flash[:danger] = "Please make sure that the passwords match and is not blank"
+      redirect_to reset_password_user_path(@current_user)
+    end
   end
 
   def destroy

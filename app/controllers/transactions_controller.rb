@@ -99,14 +99,11 @@ class TransactionsController < ApplicationController
 
   def update_remaining_balance
     new_balance = @transaction.is_expense ? current_user.remaining_balance - @transaction.amount : current_user.remaining_balance + @transaction.amount
-    # raise new_balance.inspect
     @current_user.update_columns(remaining_balance: new_balance)
-    # raise @current_user.remaining_balance.inspect
   end
 
   def update_remaining_balance_for_destroy
     new_balance = @transaction.is_expense ? current_user.remaining_balance + @transaction.amount : current_user.remaining_balance - @transaction.amount
-    # raise new_balance.inspect
     @current_user.update_columns(remaining_balance: new_balance)
   end
 end
