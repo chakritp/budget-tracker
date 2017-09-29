@@ -59,7 +59,7 @@ where some screenshots from the app are listed below:
 
 ## ERD
 A visual representation of the relationships between models is shown below:
-![ERD Diagram](/Users/ChakritP/Desktop/Screenshots/erd-diagram.png)
+![ERD Diagram](screenshots/erd-diagram.png)
 
 ## MVP
 - Implemented using 4 models: User, PaymentMethod, Transaction and AdminUser
