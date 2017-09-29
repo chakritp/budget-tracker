@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     @user.first_name = user_params[:first_name]
     @user.last_name = user_params[:last_name]
     @user.email = user_params[:email]
+    @user.avatar = user_params[:avatar]
     
     if email_exists_in_db_and_not_mine(@user.email)
       flash[:danger] = "This email has already been taken. Please input another email." 
@@ -93,7 +94,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
   end
 
   def authorize_user
