@@ -51,10 +51,10 @@ Main user stories:
 Wireframes can be found at the [Trello board](https://trello.com/b/Z8eh3dpv/budget-tracker)
 where some screenshots from the app are listed below:
 
-![image-1](/Users/ChakritP/Desktop/Screenshots/pocket-trackr-1.png)
-![image-2](/Users/ChakritP/Desktop/Screenshots/pocket-trackr-2.png)
-![image-3](/Users/ChakritP/Desktop/Screenshots/pocket-trackr-3.png)
-![image-4](/Users/ChakritP/Desktop/Screenshots/pocket-trackr-4.png)
+![image-1](screenshots/pocket-trackr-1.png)
+![image-2](screenshots/pocket-trackr-2.png)
+![image-3](screenshots/pocket-trackr-3.png)
+![image-4](screenshots/pocket-trackr-4.png)
 
 
 ## ERD
