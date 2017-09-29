@@ -10,6 +10,13 @@ div.site-wrapper {
   background-size: cover;
 }
 
+.transparent-box {
+  background: rgba(255,255,255,0.6);
+  padding: 40px;
+  border-radius: 15px;
+  color: #464a4e;
+}
+
 .form-button {
   cursor: pointer;
 }
@@ -22,6 +29,10 @@ a.btn-link.form-button {
   margin-top: 30px;
 }
 
+.masthead-brand {
+  color: white;
+}
+
 /*
 * Globals
 */
@@ -30,17 +41,21 @@ a.btn-link.form-button {
 a,
 a:focus,
 a:hover {
-  color: #fff;
+  color: #464a4e;
 }
 
 /* Custom default button */
 .btn-secondary,
-.btn-secondary:hover,
 .btn-secondary:focus {
   color: #333;
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: #fff;
   border: .05rem solid #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #C0BFBF;
+  border: .05rem solid white;
 }
 
 

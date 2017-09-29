@@ -1,26 +1,28 @@
 <div class="inner cover">
-  <h1>Sign Up</h1>
-  <%= form_for @user, { class: '' } do |f| %>
-    <div class="form-group">
-      <%= f.label :first_name, class: "" %>
-      <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
-    </div>
-    <div class="form-group">
-        <%= f.label :last_name, class: "" %>
-        <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+  <div class="transparent-box">
+    <h1>Sign Up</h1>
+    <%= form_for @user, { class: '' } do |f| %>
+      <div class="form-group">
+        <%= f.label :first_name, class: "" %>
+        <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
       </div>
-    <div class="form-group">
-      <%= f.label :email, class: "" %>
-      <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password, class: "" %>
-      <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-    </div>
-    <div class="form-group">
-        <%= f.label :password_confirmation, class: "" %>
-        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
+      <div class="form-group">
+          <%= f.label :last_name, class: "" %>
+          <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+        </div>
+      <div class="form-group">
+        <%= f.label :email, class: "" %>
+        <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
       </div>
-    <%= f.submit "Sign Up", class: "btn btn-primary form-button" %>
-  <% end %>
+      <div class="form-group">
+        <%= f.label :password, class: "" %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+      </div>
+      <div class="form-group">
+          <%= f.label :password_confirmation, class: "" %>
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
+        </div>
+      <%= f.submit "Sign Up", class: "btn btn-primary form-button" %>
+    <% end %>
+  </div>
 </div>
