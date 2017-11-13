@@ -4,6 +4,8 @@ class TransactionsController < ApplicationController
 
   def index
     # show transactions of this user
+    
+    # allow filter for expenses, incomes or all transactions
     @transactions = if params[:type] == 'expenses'
                       @current_user.transactions.where(is_expense: true).order(date: :desc)
                     elsif params[:type] == 'income'
